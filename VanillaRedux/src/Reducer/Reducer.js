@@ -7,9 +7,14 @@ export const CounterReducer = (state = initialState, action) => {
     case type.INCREMENT:
       return {
         ...state,
-        count: state.count++,
+        count: state.count + 1,
       };
 
+    case type.DECREMENT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
     /*
     continue
     break
