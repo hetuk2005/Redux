@@ -20,12 +20,13 @@ export const Counter = () => {
     <>
       <h1>Counter {getState().count}</h1>
       {/* <h1>Counter {count}</h1> */}
-      <button onClick={() => dispatch({ type: type.INCREMENT })}>
+      <button onClick={() => dispatch({ type: type.DECREMENT })}>
         Decrement
       </button>
-      <button onClick={() => dispatch({ type: type.DECREMENT })}>
+      <button onClick={() => dispatch({ type: type.INCREMENT })}>
         Increment
       </button>
+      <button onClick={() => dispatch({ type: type.DOUBLE })}>Double</button>
     </>
   );
 };
