@@ -1,12 +1,10 @@
 import React, { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import * as types from "../Reducer/Todos/Action";
 
 export const TodoInput = () => {
   const dispatch = useDispatch();
-  const value = useSelector((state) => state.todo);
-  console.log("Value: ", value);
 
   const inputData = useRef(null);
 
@@ -18,9 +16,20 @@ export const TodoInput = () => {
 
   return (
     <>
-      <h1>Todo</h1>
-      <input type="text" ref={inputData} />
-      <button onClick={handleAdd}>Add</button>
+      <h1 style={{ textAlign: "center" }}>Todo</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "15px",
+        }}
+      >
+        <input type="text" ref={inputData} placeholder="Enter Todo" />
+        <button style={{ cursor: "pointer" }} onClick={handleAdd}>
+          Add
+        </button>
+      </div>
     </>
   );
 };

@@ -8,8 +8,8 @@ import { TodoSign } from "../Components/TodoSignUp";
 export const Todo = () => {
   return (
     <>
-      <TodoSign />
-      <TodoLogin />
+      {/* <TodoSign />
+      <TodoLogin /> */}
       <TodoInput />
       <TodoList />
     </>

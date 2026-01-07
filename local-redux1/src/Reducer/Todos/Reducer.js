@@ -20,6 +20,20 @@ export const todoReducer = (state = initialValue, { type, payload }) => {
         };
       }
     }
+    case types.DELETETODO: {
+      return {
+        ...state,
+        todo: state.todo.filter((el) => el.id !== payload),
+      };
+    }
+    case types.EDITTODO: {
+      return {
+        ...state,
+        todo: state.todo.map((el) =>
+          el.id === payload ? { ...el, isEdit: true } : el
+        ),
+      };
+    }
     default:
       return state;
   }

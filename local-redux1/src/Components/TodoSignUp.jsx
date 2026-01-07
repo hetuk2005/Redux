@@ -26,7 +26,7 @@ export const TodoSign = () => {
         <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
           <label style={{ fontWeight: "700", fontSize: "21px" }}>Email</label>
           <input
-            type="text"
+            type="email"
             placeholder="Enter Your Email"
             style={{ border: "1px solid", padding: "5px" }}
           />
