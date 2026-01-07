@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as types from "./Action";
 
 const initialValue = { count: 0 };
@@ -28,6 +27,7 @@ export const myOwnReducer = (state = initialValue, { type, payload }) => {
         ...state,
         count: state.count - payload,
       };
+
     default:
       return state;
   }
