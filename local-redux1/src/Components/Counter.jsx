@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import * as types from "../Reducer/Count/Action";
@@ -8,6 +8,8 @@ export const Counter = () => {
   const value = useSelector((state) => state.count);
   // console.log("Value: ", value);
 
+  const [inputValue, setInputValue] = useState(0);
+
   const handleInc = () => {
     dispatch({ type: types.INCREMENT });
   };
@@ -16,11 +18,36 @@ export const Counter = () => {
     dispatch({ type: types.DECREMENT });
   };
 
+  const handleIncByValue = () => {
+    dispatch({
+      type: types.INCREMENTBYVALUE,
+      payload: Number(inputValue),
+    });
+  };
+
+  const handleDecByValue = () => {
+    dispatch({
+      type: types.DECREMENTBYVALUE,
+      payload: Number(inputValue),
+    });
+  };
+
   return (
     <>
       <h1>Counter {value}</h1>
       <button onClick={handleInc}>+</button>
       <button onClick={handleDec}>-</button>
+      <br />
+      <br />
+      <input
+        type="number"
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Enter Value"
+      />
+      <br />
+      <br />
+      <button onClick={handleIncByValue}>++</button>
+      <button onClick={handleDecByValue}>--</button>
     </>
   );
 };

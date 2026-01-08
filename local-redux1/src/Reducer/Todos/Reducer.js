@@ -34,6 +34,24 @@ export const todoReducer = (state = initialValue, { type, payload }) => {
         ),
       };
     }
+    case types.CONFIRMTODO: {
+      return {
+        ...state,
+        todo: state.todo.map((el) =>
+          el.id === payload.id
+            ? { ...el, isEdit: false, text: payload.text }
+            : el
+        ),
+      };
+    }
+    case types.CANCELTODO: {
+      return {
+        ...state,
+        todo: state.todo.map((el) =>
+          el.id === payload ? { ...el, isEdit: false } : el
+        ),
+      };
+    }
     default:
       return state;
   }
