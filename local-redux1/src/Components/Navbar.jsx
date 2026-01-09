@@ -11,7 +11,22 @@ export const Navbar = () => {
 
   return (
     <>
-      <h1>Route</h1>
+      {routes.map((el, i) => {
+        return (
+          <NavLink
+            to={el.path}
+            key={i}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "21px",
+            }}
+          >
+            {el.element}
+          </NavLink>
+        );
+      })}
     </>
   );
 };

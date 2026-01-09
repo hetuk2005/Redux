@@ -2,13 +2,15 @@ import React from "react";
 import "./App.css";
 
 // import { Counter } from "./Components/Counter";
-import { Todo } from "./Pages/Todo";
+// import { Todo } from "./Pages/Todo";
+import { AllRoutes } from "./Routes/AllRoutes.routes";
 
 function App() {
   return (
     <>
       {/* <Counter /> */}
-      <Todo />
+      {/* <Todo /> */}
+      <AllRoutes />
     </>
   );
 }
