@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const TodoLogin = () => {
+export const TodoLogin = ({ props }) => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const payload = { email, pass };
+    props(payload);
+  };
+
   return (
     <>
       <h3 style={{ textAlign: "center" }}>Login</h3>
@@ -11,6 +20,7 @@ export const TodoLogin = () => {
           alignItems: "center",
           flexDirection: "column",
         }}
+        onSubmit={handleSubmit}
       >
         <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
           <label
@@ -23,7 +33,9 @@ export const TodoLogin = () => {
             type="email"
             id="email"
             placeholder="Enter Your Email"
+            autoComplete="off"
             style={{ border: "1px solid", padding: "5px" }}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <br />
@@ -36,8 +48,10 @@ export const TodoLogin = () => {
           </label>
           <input
             id="password"
+            autoComplete="off"
             type="password"
             placeholder="Enter Your Password"
+            onChange={(e) => setPass(e.target.value)}
             style={{ border: "1px solid", padding: "5px" }}
           />
         </div>
@@ -52,6 +66,7 @@ export const TodoLogin = () => {
             letterSpacing: "1px",
             textTransform: "uppercase",
           }}
+          type="submit"
         >
           Login
         </button>

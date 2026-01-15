@@ -5,13 +5,19 @@ import * as types from "../Reducer/Todos/Action";
 
 export const TodoList = () => {
   const dispatch = useDispatch();
+  // const [updateText, setUpdateText] = useState("");
 
   const editRef = useRef(null);
 
   const value = useSelector((xyz) => {
-    return xyz.todo;
+    return xyz.todos.todo;
   });
   console.log("Value: ", value);
+
+  const { token } = useSelector((xyz) => {
+    return xyz.auths;
+  });
+  console.log("Token: ", token);
 
   const handleEdit = (id) => {
     dispatch({ type: types.EDITTODO, payload: id });
@@ -31,6 +37,9 @@ export const TodoList = () => {
 
   return (
     <>
+      <h1 style={{ color: "red", fontSize: "25px", fontWeight: "bolder" }}>
+        {token}
+      </h1>
       <h1 style={{ textAlign: "center" }}>TodoList</h1>
       {value &&
         value.map((el) => {

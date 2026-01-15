@@ -3,7 +3,7 @@ import "./App.css";
 
 // import { Counter } from "./Components/Counter";
 // import { Todo } from "./Pages/Todo";
-import { AllRoutes } from "./Routes/AllRoutes.routes";
+import { AllRoutes } from "./Routes/AllRoutes.Route";
 
 function App() {
   return (

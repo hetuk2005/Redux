@@ -19,6 +19,7 @@ export const TodoSign = () => {
           <input
             id="name"
             type="text"
+            autoComplete="off"
             placeholder="Enter Your Name/Username"
             style={{ border: "1px solid", padding: "5px" }}
           />
@@ -34,6 +35,7 @@ export const TodoSign = () => {
           <input
             id="email"
             type="email"
+            autoComplete="off"
             placeholder="Enter Your Email"
             style={{ border: "1px solid", padding: "5px" }}
           />
@@ -49,6 +51,7 @@ export const TodoSign = () => {
           <input
             id="password"
             type="password"
+            autoComplete="off"
             placeholder="Enter Your Password"
             style={{ border: "1px solid", padding: "5px" }}
           />
@@ -64,6 +67,7 @@ export const TodoSign = () => {
           <input
             id="confirmPass"
             type="password"
+            autoComplete="off"
             placeholder="Enter Your Confirm Password"
             style={{ border: "1px solid", padding: "5px" }}
           />
