@@ -1,7 +1,12 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { getLogin } from "../Auth/Action";
 
 export const Navbar = () => {
+  const dispatch = useDispatch();
+
   const routes = [
     { path: "/", element: "home" },
     { path: "/login", element: "login" },
@@ -9,6 +14,10 @@ export const Navbar = () => {
     { path: "/counter", element: "counter" },
     { path: "/todo", element: "todo" },
   ];
+
+  const handleLogout = () => {
+    dispatch(getLogin());
+  };
 
   return (
     <>
@@ -41,6 +50,7 @@ export const Navbar = () => {
             </NavLink>
           );
         })}
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </>
   );

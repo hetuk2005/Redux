@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 
-import * as types from "../Reducer/Todos/Action";
+import { addTodo } from "../Reducer/Todos/Action";
 
 export const TodoInput = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ export const TodoInput = () => {
   const handleAdd = () => {
     const valueText = inputData.current.value;
     // console.log("Value Text: ", valueText);
-    dispatch({ type: types.ADDTODO, payload: valueText });
+    dispatch(addTodo(valueText));
   };
 
   return (
