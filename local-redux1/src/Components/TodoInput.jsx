@@ -25,8 +25,31 @@ export const TodoInput = () => {
           gap: "15px",
         }}
       >
-        <input type="text" ref={inputData} placeholder="Enter Todo" />
-        <button style={{ cursor: "pointer" }} onClick={handleAdd}>
+        <input
+          type="text"
+          ref={inputData}
+          placeholder="Enter Todo"
+          style={{
+            borderRadius: "15px",
+            padding: "7px 11px",
+            cursor: "pointer",
+            fontWeight: "700",
+            border: "2px solid",
+            letterSpacing: "1px",
+            fontSize: "15px",
+          }}
+        />
+        <button
+          style={{
+            borderRadius: "15px",
+            padding: "7px 11px",
+            cursor: "pointer",
+            fontWeight: "700",
+            letterSpacing: "1px",
+            fontSize: "15px",
+          }}
+          onClick={handleAdd}
+        >
           Add
         </button>
       </div>

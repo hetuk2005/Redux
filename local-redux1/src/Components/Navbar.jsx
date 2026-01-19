@@ -50,7 +50,19 @@ export const Navbar = () => {
             </NavLink>
           );
         })}
-        <button onClick={handleLogout}>Logout</button>
+        <button
+          onClick={handleLogout}
+          style={{
+            borderRadius: "15px",
+            padding: "7px 11px",
+            cursor: "pointer",
+            fontWeight: "700",
+            letterSpacing: "1px",
+            fontSize: "15px",
+          }}
+        >
+          Logout
+        </button>
       </div>
     </>
   );

@@ -13,6 +13,8 @@ const initialValue = {
 };
 
 export const authReducer = (state = initialValue, action) => {
+  console.log("Action: ", action);
+
   switch (action.type) {
     case types.REMOVE_TOKEN:
       removeData(tokenKeys);
@@ -27,7 +29,8 @@ export const authReducer = (state = initialValue, action) => {
         isLoading: true,
       };
     case types.LOGIN_SUCCESSFULL: {
-      if (action.payload !== "fakeToken") return state;
+      // if (action.payload !== "Fake Token") return state;
+      // if (action.payload === "Wrong Credentials") return state;
 
       dataSave(tokenKeys, action.payload);
 
@@ -35,6 +38,7 @@ export const authReducer = (state = initialValue, action) => {
         ...state,
         isLoading: false,
         isAuth: true,
+        isError: null,
         token: action.payload,
       };
     }

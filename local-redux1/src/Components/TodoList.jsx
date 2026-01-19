@@ -37,7 +37,15 @@ export const TodoList = () => {
 
   return (
     <>
-      <h1 style={{ color: "red", fontSize: "25px", fontWeight: "bolder" }}>
+      <br />
+      <h1
+        style={{
+          color: "red",
+          fontSize: "25px",
+          fontWeight: "bolder",
+          textAlign: "center",
+        }}
+      >
         {token}
       </h1>
       <h1 style={{ textAlign: "center" }}>TodoList</h1>

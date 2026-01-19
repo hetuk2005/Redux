@@ -1,26 +1,76 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
 
-import * as types from "../Auth/Action";
-import { TodoLogin } from "../Pages/TodoLogin";
+export const TodoCompo = ({ props }) => {
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
 
-export const LoginCompo = () => {
-  const dispatch = useDispatch();
-  const { isLoading, isError } = useSelector((state) => state.auths);
-  const handleLogin = ({ email, pass }) => {
-    if (email === "admin@gmail.com" && pass === "admin") {
-      dispatch({ type: types.LOGIN_SUCCESSFULL, payload: "fakeToken" });
-    } else {
-      dispatch({ type: types.LOGIN_FALIURE, payload: "Wrong Credentials" });
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const payload = { email, pass };
+    props(payload);
   };
-
-  if (isLoading) return <h1>Loading...</h1>;
 
   return (
     <>
-      <TodoLogin props={handleLogin} />
-      {isError && <h1>Something Went Wrong...</h1>}
+      <h3 style={{ textAlign: "center" }}>Login</h3>
+      <form
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+          <label
+            style={{ fontWeight: "700", fontSize: "21px" }}
+            htmlFor="email"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Your Email"
+            autoComplete="off"
+            style={{ border: "1px solid", padding: "5px" }}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <br />
+        <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
+          <label
+            style={{ fontWeight: "700", fontSize: "21px" }}
+            htmlFor="password"
+          >
+            Password
+          </label>
+          <input
+            id="password"
+            autoComplete="off"
+            type="password"
+            placeholder="Enter Your Password"
+            onChange={(e) => setPass(e.target.value)}
+            style={{ border: "1px solid", padding: "5px" }}
+          />
+        </div>
+        <br />
+        <button
+          style={{
+            cursor: "pointer",
+            padding: "7px",
+            borderRadius: "7px",
+            border: "2px solid",
+            fontWeight: "600",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+          }}
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
     </>
   );
 };
