@@ -8,10 +8,10 @@ export const getLogin = () => {
   return { type: REMOVE_TOKEN };
 };
 
-export const handleSuccessful = (payload) => {
-  return { type: LOGIN_SUCCESSFULL, payload: payload };
+export const handleSuccessful = (payload) => (dispatch) => {
+  dispatch({ type: LOGIN_SUCCESSFULL, payload: payload });
 };
 
-export const handleFailure = (payload) => {
-  return { type: LOGIN_FALIURE, payload: payload };
+export const handleFailure = (payload) => (dispatch) => {
+  dispatch({ type: LOGIN_FALIURE, payload: payload });
 };
