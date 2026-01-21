@@ -29,4 +29,5 @@ const composeEnhancers =
 const enhance = composeEnhancers(applyMiddleware(logger));
 
 export const myOwnStore = legacy_createStore(terminalReducer, enhance);
+
 // export const myOwnStore = legacy_createStore(todoReducer);
