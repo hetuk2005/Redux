@@ -1,14 +1,14 @@
 {
   "todo": [
     {
-      "id": 1,
-      "title": "Learn Redux",
-      "status": false
-    }
-  ],
-  "cart": [
+      "title": "Hello",
+      "status": false,
+      "id": 1
+    },
     {
-      "count": 0
+      "title": "Hetuk",
+      "status": false,
+      "id": 2
     }
   ]
 }

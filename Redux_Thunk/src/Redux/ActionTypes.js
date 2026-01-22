@@ -5,3 +5,7 @@ export const GET_TODO_SUCCESS = "GET_TODO_SUCCESS";
 export const GET_TODO_FAILURE = "GET_TODO_FAILURE";
 
 // This Is ADD
+
+export const ADD_TODO_REQUEST = "ADD_TODO_REQUEST";
+export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
+export const ADD_TODO_FAILURE = "ADD_TODO_FAILURE";

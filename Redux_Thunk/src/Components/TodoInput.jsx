@@ -1,27 +1,33 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef } from "react";
 import axios from "axios";
 
-import * as actFunc from "../Redux/Action";
+export const TodoInput = ({ getApi }) => {
+  const inputValue = useRef();
 
-export const TodoInput = () => {
-  const data = useSelector((state) => state.todos);
-  const dispatch = useDispatch();
+  const addTodo = () => {
+    if (inputValue && inputValue.current.value.trim() !== "") {
+      let data = {
+        title: inputValue.current.value,
+        status: false,
+      };
 
-  const getApi = () => {
-    axios
-      .get("http://localhost:8080/todo")
-      .then((res) => dispatch(actFunc.getTodoSuccess(res)))
-      .catch((err) => console.log(err));
+      return axios
+        .post("http://localhost:8080/todo", data)
+        .then((res) => res)
+        .catch((err) => console.log(err));
+    }
   };
 
-  React.useEffect(() => {
-    getApi();
-  }, []);
+  const handleAdd = () => {
+    addTodo().then(() => getApi());
+  };
 
   return (
     <>
-      <div>Todo Input</div>
+      <input type="text" ref={inputValue} />
+      <button onClick={handleAdd} style={{ cursor: "pointer" }}>
+        Add
+      </button>
     </>
   );
 };
