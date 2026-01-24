@@ -1,36 +1,40 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 import { TodoInput } from "./TodoInput";
-import * as actFunc from "../Redux/Action";
+import { getApi } from "../Redux/Action";
 
 export const Todos = () => {
-  const data = useSelector((state) => state.todos);
+  const { isLoadings, isErrors, todo } = useSelector((state) => {
+    return {
+      todo: state.todos,
+      isLoadings: state.isLoading,
+      isErrors: state.isError,
+    };
+  }, shallowEqual);
+
+  // console.log("Is Error: ", isErrors);
+  // console.log("Is Loading: ", isLoadings);
+
   const dispatch = useDispatch();
 
-  const getApi = () => {
-    axios
-      .get("http://localhost:8080/todo")
-      .then((res) => dispatch(actFunc.getTodoSuccess(res.data)))
-      .catch((err) => console.log(err));
-  };
-
   useEffect(() => {
-    getApi();
+    dispatch(getApi);
   }, []);
-  console.log("Data: ", data);
 
   return (
     <>
       <h1>Todo</h1>
       <TodoInput getApi={getApi} />
-      {data.map((el) => (
+      {todo?.map((el) => (
         <p key={el.id}>
           {el.title} - {el.status ? "True" : "False"}
         </p>
       ))}
+
+      {isLoadings && <h1>Loading....</h1>}
+      {isErrors && <h1>Something Went Wrong....</h1>}
     </>
   );
 };
