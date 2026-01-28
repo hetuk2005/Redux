@@ -20,6 +20,7 @@ export const fakeReducer = (oldState = initialState, action) => {
       return {
         ...oldState,
         isLoading: false,
+        fakeStore: payload,
       };
 
     case types.GET_FAILURE:
