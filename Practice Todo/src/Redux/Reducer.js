@@ -1,12 +1,12 @@
 import * as types from "./ActionTypes";
 
 const initialState = {
-  fakeStore: {},
+  fakeStore: [],
   isLoading: false,
   isError: null,
 };
 
-export const Reducer = (oldState = initialState, action) => {
+export const fakeReducer = (oldState = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {

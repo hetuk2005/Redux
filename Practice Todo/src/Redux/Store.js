@@ -1,11 +1,6 @@
 import React from "react";
-import { legacy_createStore, compose } from "redux";
+import { legacy_createStore } from "redux";
 
-import { Reducer } from "./Reducer";
+import { fakeReducer } from "../Redux/Reducer";
 
-const composeEnhancers =
-  (typeof window !== "undefined" &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
-
-export const myStore = legacy_createStore(Reducer, composeEnhancers);
+export const myStore = legacy_createStore(fakeReducer);
