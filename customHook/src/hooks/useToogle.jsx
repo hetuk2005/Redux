@@ -5,7 +5,7 @@ export const useToogle = (incomeVal) => {
 
   function toogleValue(val) {
     if (typeof val !== "boolean") {
-      setValue(!val);
+      setValue(!value);
     } else {
       setValue(val);
     }

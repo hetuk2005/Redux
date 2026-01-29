@@ -6,9 +6,15 @@ export const useLoacalStorage = (key, initialValue) => {
     return saveData ? JSON.parse(saveData) : initialValue;
   });
 
+  const updateValue = (newData) => {
+    setValue((prev) => {
+      return [...prev, newData];
+    });
+  };
+
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
-  return [value, setValue];
+  return [value, updateValue];
 };
