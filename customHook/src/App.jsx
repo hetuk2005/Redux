@@ -9,7 +9,7 @@ function App() {
   const [value, setValue] = useLoacalStorage("name", []);
 
   const [toogle, setToogle] = useToogle();
-
+  
   const [toogle_2, setToogle_2] = useToogle();
 
   return (
