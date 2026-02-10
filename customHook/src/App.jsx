@@ -2,14 +2,18 @@ import { useState } from "react";
 import "./App.css";
 import { useLoacalStorage } from "./hooks/useLocalStorage";
 import { useToogle } from "./hooks/useToogle";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
+  const { data } = useFetch("https://fakestoreapi.com/products");
+  // console.log("Data: ", data);
+
   const [string, setString] = useState("");
 
   const [value, setValue] = useLoacalStorage("name", []);
 
   const [toogle, setToogle] = useToogle();
-  
+
   const [toogle_2, setToogle_2] = useToogle();
 
   return (
@@ -42,6 +46,29 @@ function App() {
       <button onClick={() => setToogle_2(false)} style={{ cursor: "pointer" }}>
         Off
       </button>
+
+      <br />
+      <br />
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3,1fr)",
+          justifyItems: "center",
+          alignContent: "center",
+        }}
+      >
+        {data?.map((el) => (
+          <div
+            key={el.id}
+            style={{ border: "1px solid", margin: "11px", width: "100%" }}
+          >
+            <img src={el.image} alt="Image" style={{ width: "51%" }} />
+            <h4>{el.title}</h4>
+            <p>{el.description}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }

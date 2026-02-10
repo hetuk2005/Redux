@@ -1,5 +1,7 @@
 // $ Here We Are Creating The Action
 
+import { useEffect, useReducer } from "react";
+
 const FETCH_REQUEST = "FETCH_REQUEST";
 const FETCH_SUCCESS = "FETCH_SUCCESS";
 const FETCH_FAILURE = "FETCH_FAILURE";
@@ -14,7 +16,7 @@ const initialValue = {
 
 //# Here We Are Creating The Reducer
 
-const Reducer = (oldState = initialValue, { type, payload }) => {
+const Reducer = (oldState, { type, payload }) => {
   switch (type) {
     case FETCH_REQUEST:
       return {
@@ -27,7 +29,7 @@ const Reducer = (oldState = initialValue, { type, payload }) => {
       return {
         ...oldState,
         isLoading: false,
-        data: [...oldState.data, payload],
+        data: payload,
       };
 
     case FETCH_FAILURE:
@@ -40,4 +42,19 @@ const Reducer = (oldState = initialValue, { type, payload }) => {
     default:
       return oldState;
   }
+};
+
+export const useFetch = (url) => {
+  const [state, dispatch] = useReducer(Reducer, initialValue);
+
+  useEffect(() => {
+    dispatch({ type: FETCH_REQUEST });
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => dispatch({ type: FETCH_SUCCESS, payload: res }))
+      .catch(() => dispatch({ type: FETCH_FAILURE }));
+  }, []);
+
+  return state;
 };
