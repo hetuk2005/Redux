@@ -10,7 +10,6 @@ export const useToogle = (incomeVal) => {
     } else {
       setValue(val);
     }
-    // setValue((prev) => !prev);
   }
 
   return [value, toogleValue];

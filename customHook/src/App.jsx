@@ -1,18 +1,18 @@
 import { useState } from "react";
 import "./App.css";
 import { useToogle } from "./hooks/useToogle";
-// import { useLoacalStorage } from "./hooks/useLocalStorage";
-// import { useFetch } from "./hooks/useFetch";
+import { useLoacalStorage } from "./hooks/useLocalStorage";
+import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  // const { data } = useFetch("https://fakestoreapi.com/products");
-  // console.log("Data: ", data);
+  const { data } = useFetch("https://fakestoreapi.com/products");
+  console.log("Data: ", data);
 
-  // const [string, setString] = useState("");
+  const [string, setString] = useState("");
 
-  // const [value, setValue] = useLoacalStorage("name", []);
+  const [value, setValue] = useLoacalStorage("name", []);
 
-  // const [toogle_2, setToogle_2] = useToogle();
+  const [toogle_2, setToogle_2] = useToogle();
 
   const [toogle, setToogle] = useToogle();
 
@@ -23,7 +23,7 @@ function App() {
         {toogle ? "Hide" : "Show"}
       </button>
 
-      {/* <input type="text" onChange={(e) => setString(e.target.value)} />
+      <input type="text" onChange={(e) => setString(e.target.value)} />
       <button onClick={() => setValue(string)} style={{ cursor: "pointer" }}>
         Click
       </button>
@@ -73,7 +73,7 @@ function App() {
             <p>{el.description}</p>
           </div>
         ))}
-      </div> */}
+      </div>
     </>
   );
 }
