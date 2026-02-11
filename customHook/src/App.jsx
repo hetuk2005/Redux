@@ -1,24 +1,29 @@
 import { useState } from "react";
 import "./App.css";
-import { useLoacalStorage } from "./hooks/useLocalStorage";
 import { useToogle } from "./hooks/useToogle";
-import { useFetch } from "./hooks/useFetch";
+// import { useLoacalStorage } from "./hooks/useLocalStorage";
+// import { useFetch } from "./hooks/useFetch";
 
 function App() {
-  const { data } = useFetch("https://fakestoreapi.com/products");
+  // const { data } = useFetch("https://fakestoreapi.com/products");
   // console.log("Data: ", data);
 
-  const [string, setString] = useState("");
+  // const [string, setString] = useState("");
 
-  const [value, setValue] = useLoacalStorage("name", []);
+  // const [value, setValue] = useLoacalStorage("name", []);
+
+  // const [toogle_2, setToogle_2] = useToogle();
 
   const [toogle, setToogle] = useToogle();
 
-  const [toogle_2, setToogle_2] = useToogle();
-
   return (
     <>
-      <input type="text" onChange={(e) => setString(e.target.value)} />
+      <input type={toogle ? "text" : "password"} />
+      <button onClick={setToogle} style={{ cursor: "pointer" }}>
+        {toogle ? "Hide" : "Show"}
+      </button>
+
+      {/* <input type="text" onChange={(e) => setString(e.target.value)} />
       <button onClick={() => setValue(string)} style={{ cursor: "pointer" }}>
         Click
       </button>
@@ -68,7 +73,7 @@ function App() {
             <p>{el.description}</p>
           </div>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
