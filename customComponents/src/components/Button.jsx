@@ -1,9 +1,17 @@
 import React from "react";
 
-export const Button = ({ value }) => {
+export const Button = ({ name, backgroundColor }) => {
   return (
     <>
-      <button style={value.style}>{value.name}</button>
+      <button
+        style={{
+          borderColor: backgroundColor,
+          "--btn-color": backgroundColor,
+          color: "#000",
+        }}
+      >
+        {name}
+      </button>
     </>
   );
 };

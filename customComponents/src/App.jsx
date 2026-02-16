@@ -14,18 +14,7 @@ function App() {
       <SignInButton value={"Sign In"} />
       <br />
       <br />
-      <Button
-        value={{
-          name: "Sign Up",
-          style: {
-            padding: ".25rem 1rem",
-            borderRadius: ".4rem",
-            border: "2px solid red",
-            background: "transparent",
-            cursor: "pointer",
-          },
-        }}
-      />
+      <Button name="Sign Up" backgroundColor="red" />
     </>
   );
 }
