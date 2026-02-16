@@ -5,7 +5,6 @@ button {
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  color: #000;
   background-color: transparent;
 }
 

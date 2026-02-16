@@ -7,7 +7,6 @@ export const Button = ({ name, backgroundColor }) => {
         style={{
           borderColor: backgroundColor,
           "--btn-color": backgroundColor,
-          color: "#000",
         }}
       >
         {name}
