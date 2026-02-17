@@ -5,7 +5,6 @@ import { PinItems } from "./PinItems";
 
 export const InputBox = ({ perBox, setMainVal, length, style }) => {
   const [values, setValues] = useState(new Array(length).fill(""));
-  // console.log("Values: ", values);
   const elements = useRef(new Array(length).fill(0));
 
   const handleChange = (v, i) => {
@@ -13,8 +12,21 @@ export const InputBox = ({ perBox, setMainVal, length, style }) => {
     vals[i] = v;
     setValues(vals);
 
-    elements.current[i + 1]?.focus();
-    setMainVal(values.join(""));
+    if (i < vals.length - 1) {
+      elements.current[i + 1].focus();
+      setMainVal(vals.join(""));
+    }
+  };
+
+  const handleBackSpace = (i) => {
+    console.log("Values: ", values);
+    const vals = [...values];
+    vals[i] = "";
+    setValues(vals);
+
+    if (i === 0) return;
+    elements.current[i - 1].focus();
+    setMainVal(vals.join(""));
   };
 
   return (
@@ -26,6 +38,7 @@ export const InputBox = ({ perBox, setMainVal, length, style }) => {
           key={index}
           max={perBox}
           handleChange={(dataVal) => handleChange(dataVal, index)}
+          handleBackSpace={() => handleBackSpace(index)}
         />
       ))}
     </>
@@ -38,7 +51,7 @@ InputBox.propTypes = {
   perBox: PropTypes.number.isRequired,
 };
 
-InputBox.Defaultprops = {
+InputBox.defaultProps = {
   label: "Hello",
   length: 3,
   perBox: 1,
