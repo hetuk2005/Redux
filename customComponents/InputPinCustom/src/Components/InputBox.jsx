@@ -12,7 +12,7 @@ export const InputBox = ({ perBox, setMainVal, length, style }) => {
     vals[i] = v;
     setValues(vals);
 
-    if (i < vals.length - 1) {
+    if (vals && i < vals.length - 1) {
       elements.current[i + 1].focus();
       setMainVal(vals.join(""));
     }
