@@ -24,7 +24,7 @@ export const InputBox = ({ perBox, setMainVal, length, style }) => {
     vals[i] = "";
     setValues(vals);
 
-    if (vals && i === 0) return;
+    if (i === 0) return;
     elements.current[i - 1].focus();
     setMainVal(vals.join(""));
   };
