@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { useMemo } from "react";
 
 const expensiveFunc = (ms) => {
   let start = Date.now();
@@ -11,7 +11,7 @@ const expensiveFunc = (ms) => {
 };
 
 const TodoItem = ({ id, text, isEdited, handleDelete, handleEdit }) => {
-  expensiveFunc(200);
+  useMemo(() => expensiveFunc(200), []);
 
   return (
     <div
@@ -35,7 +35,8 @@ const TodoItem = ({ id, text, isEdited, handleDelete, handleEdit }) => {
 //   return prev.text === curr.text;
 // };
 
-export default memo(TodoItem);
+export default TodoItem;
+// export default memo(TodoItem);
 // export default memo(TodoItem, shallowCheck);
 
 /* 

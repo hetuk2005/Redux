@@ -38,7 +38,7 @@ export const Todo = () => {
     setTask((prev) => [...prev, todo]);
   };
 
-  const handleEdit = useCallback(
+  /*   const handleEdit = useCallback(
     (id) => {
       setTask(
         task.map((item) =>
@@ -54,8 +54,23 @@ export const Todo = () => {
       setTask(task.filter((item) => item.id !== id));
     },
     [task],
-  );
+  ); */
 
+  const handleEdit = useCallback((id) => {
+    setTask((prev) =>
+      prev.map((item) => (item.id === id ? { ...item, isEdited: true } : item)),
+    );
+  }, []);
+
+  const handleDelete = useCallback((id) => {
+    setTask((prev) => prev.map(prev.filter((item) => item.id !== id)));
+  }, []);
+
+/*     
+    AX99 === AY99
+    prev===curr 
+*/
+    
   return (
     <>
       <h1 style={{ textAlign: "center" }}>Todo 📘</h1>
@@ -81,4 +96,4 @@ export const Todo = () => {
         ))}
     </>
   );
-};
+};;
