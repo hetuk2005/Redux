@@ -1,7 +1,7 @@
 const initialVal = {
   musicRecords: [],
   isLoading: false,
-  isError: false,
+  isError: null,
 };
 
-const reducer = (oldState = initialVal, { type, payload }) => {};
+export const reducer = (oldState = initialVal, { type, payload }) => {};
