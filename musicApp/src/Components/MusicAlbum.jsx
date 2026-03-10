@@ -6,7 +6,7 @@ import { getMusicRecords } from "../Redux/actionTypes";
 export const MusicAlbum = () => {
   const dispatch = useDispatch();
   const musicData = useSelector((store) => store.musicRecords);
-  console.log("Music Data: ", musicData);
+  // console.log("Music Data: ", musicData);
 
   useEffect(() => {
     dispatch(getMusicRecords);
