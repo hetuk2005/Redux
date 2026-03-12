@@ -1,16 +1,27 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 import { getMusicRecords } from "../Redux/actionTypes";
 
 export const MusicAlbum = () => {
   const dispatch = useDispatch();
+
   const musicData = useSelector((store) => store.musicRecords);
+
+  const [searchParams] = useSearchParams();
+
   // console.log("Music Data: ", musicData);
 
   useEffect(() => {
-    dispatch(getMusicRecords);
-  }, []);
+    const genre = searchParams.getAll("genre");
+
+    const queryParams = {
+      params: { genre: genre },
+    };
+
+    dispatch(getMusicRecords(queryParams));
+  }, [searchParams]);
 
   return (
     <>

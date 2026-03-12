@@ -22,12 +22,14 @@ const getMusicFailure = (payload) => {
   };
 };
 
-export const getMusicRecords = (dispatch) => {
-  dispatch(getMusicRequest());
-  axios
-    .get("http://localhost:8080/albums")
-    .then((res) => {
-      dispatch(getMusicSuccess(res.data));
-    })
-    .catch((err) => dispatch(getMusicFailure(err)));
+export const getMusicRecords = (queryData) => {
+  return (dispatch) => {
+    dispatch(getMusicRequest());
+    axios
+      .get("http://localhost:8080/albums", queryData)
+      .then((res) => {
+        dispatch(getMusicSuccess(res.data));
+      })
+      .catch((err) => dispatch(getMusicFailure(err)));
+  };
 };

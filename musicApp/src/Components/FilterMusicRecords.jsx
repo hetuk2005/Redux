@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-// import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const FilterMusicRecords = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [filterVal, setFilterVal] = useState([]);
+  const [filterVal, setFilterVal] = useState(
+    searchParams.getAll("genre") || [],
+  );
+
+  // console.log("Search params: ", searchParams.getAll("genre"));
 
   const handleFilter = (e) => {
     const option = e.target.name;
@@ -22,9 +26,15 @@ export const FilterMusicRecords = () => {
     // console.log("Filter Value: ", filterVal);
   };
 
-  console.log("Filter Value: ", filterVal);
+  // console.log("Filter Value: ", filterVal);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const Params = {};
+
+    filterVal && (Params.genre = filterVal);
+
+    setSearchParams(Params);
+  }, [filterVal, setSearchParams]);
 
   return (
     <>
@@ -44,7 +54,12 @@ export const FilterMusicRecords = () => {
             gap: "1rem",
           }}
         >
-          <input type="checkbox" name="K-pop" onChange={handleFilter} />
+          <input
+            type="checkbox"
+            name="K-pop"
+            onChange={handleFilter}
+            defaultChecked={filterVal.includes("K-pop")}
+          />
           <label>K-Pop</label>
         </div>
 
@@ -56,7 +71,12 @@ export const FilterMusicRecords = () => {
             gap: "1rem",
           }}
         >
-          <input type="checkbox" name="Holiday" onChange={handleFilter} />
+          <input
+            type="checkbox"
+            name="Holiday"
+            onChange={handleFilter}
+            defaultChecked={filterVal.includes("Holiday")}
+          />
           <label>Holiday</label>
         </div>
 
@@ -68,7 +88,12 @@ export const FilterMusicRecords = () => {
             gap: "1rem",
           }}
         >
-          <input type="checkbox" name="Heavy Metal" onChange={handleFilter} />
+          <input
+            type="checkbox"
+            name="Heavy Metal"
+            onChange={handleFilter}
+            defaultChecked={filterVal.includes("Heavy Metal")}
+          />
           <label>Heavy Metal</label>
         </div>
       </div>
