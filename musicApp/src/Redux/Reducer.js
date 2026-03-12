@@ -3,7 +3,7 @@ import * as types from "./Action";
 const initialVal = {
   musicRecords: [],
   isLoading: false,
-  isError: null,
+  isError: false,
 };
 
 export const reducer = (oldState = initialVal, { type, payload }) => {

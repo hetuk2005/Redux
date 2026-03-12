@@ -56,9 +56,9 @@ export const FilterMusicRecords = () => {
         >
           <input
             type="checkbox"
-            name="K-pop"
+            name="K-Pop"
             onChange={handleFilter}
-            defaultChecked={filterVal.includes("K-pop")}
+            defaultChecked={filterVal.includes("K-Pop")}
           />
           <label>K-Pop</label>
         </div>
