@@ -17,7 +17,11 @@ export const MusicAlbum = () => {
     const genre = searchParams.getAll("genre");
 
     const queryParams = {
-      params: { genre: genre },
+      params: {
+        genre: genre,
+        _sort: searchParams.get("_sort") && "year",
+        _order: searchParams.get("sort"),
+      },
     };
 
     dispatch(getMusicRecords(queryParams));
@@ -32,6 +36,7 @@ export const MusicAlbum = () => {
               <h3>{album.id}</h3>
               <h4>{album.name}</h4>
               <h3>{album.genre}</h3>
+              <h4>{album.year}</h4>
               <img src={album.img} alt={album.name} />
             </div>
           );
