@@ -20,7 +20,7 @@ export const MusicAlbum = () => {
       params: {
         genre: genre,
         _sort: searchParams.get("_sort") && "year",
-        _order: searchParams.get("sort"),
+        _order: searchParams.get("_sort"),
       },
     };
 
