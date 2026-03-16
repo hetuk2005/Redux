@@ -14,7 +14,7 @@ export const MusicRecord = () => {
         <h1>{isErrorFound.remark.name} ❌</h1>
         <h1>{isErrorFound.remark.message} ❌</h1>
         <h1>
-          Please Start The Server Using{" "}
+          Please Start The Server Using
           <mark>
             <code>npm run server</code>
           </mark>
