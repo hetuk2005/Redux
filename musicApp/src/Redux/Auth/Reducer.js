@@ -1,5 +1,5 @@
 import * as types from "./Actions";
-import { loadData, saveData } from "../Utils/localStorage";
+import { loadData, saveData, removeData } from "../Utils/localStorage";
 
 const token = "token";
 
@@ -35,6 +35,8 @@ export const Reducer = (oldState = initialValue, { type, payload }) => {
       };
 
     case types.TOKEN_REMOVE:
+      removeData(token);
+
       return {
         ...oldState,
         isAuth: false,

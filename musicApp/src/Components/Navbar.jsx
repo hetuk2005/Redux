@@ -10,7 +10,6 @@ export const Navbar = () => {
   const nav = [
     { path: "/", element: "music" },
     { path: "/login", element: "login" },
-    { path: "/edit_music", element: "editsMusic" },
   ];
 
   return (

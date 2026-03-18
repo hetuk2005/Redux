@@ -29,7 +29,7 @@ const removeToken = () => {
 };
 
 const login = (userData) => (dispatch) => {
-  console.log("User Data: ", userData);
+  // console.log("User Data: ", userData);
   dispatch(PostLoginRequest());
 
   return axios({
@@ -38,7 +38,7 @@ const login = (userData) => (dispatch) => {
     baseURL: "https://reqres.in",
     data: userData,
     headers: {
-      "x-api-key": "reqres_c27db760fb6f4b06a48a548c02bf449f",
+      "x-api-key": "reqres_36f1f083d4024944b478bd690e4c20a2",
     },
   })
     .then((res) => dispatch(PostLoginSuccess(res.data.token)))

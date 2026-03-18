@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { login } from "../Redux/Auth/actionType";
 
 export const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -12,7 +16,11 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(user));
+    dispatch(login(user)).then(() =>
+      navigate(location.state.from || "/", {
+        replace: true,
+      }),
+    );
   };
 
   const handleChange = (e) => {

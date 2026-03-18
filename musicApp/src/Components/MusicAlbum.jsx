@@ -41,6 +41,9 @@ export const MusicAlbum = () => {
               <h3>{album.genre}</h3>
               <h4>{album.year}</h4>
               <img src={album.img} alt={album.name} />
+              <Link to={`music/${album.id}/edit_music`}>
+                <button>Edit</button>
+              </Link>
             </div>
           );
         })}
