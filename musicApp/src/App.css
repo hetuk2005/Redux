@@ -1,0 +1,16 @@
+.navLink{
+    text-decoration: none;
+    color:#000;
+    padding: 1rem;
+    text-transform: capitalize;
+    font-size: larger;
+    font-weight: 500;
+    margin: 0 1rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.mainDiv{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

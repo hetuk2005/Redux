@@ -32,7 +32,10 @@ export const MusicAlbum = () => {
       {musicData.length > 0 &&
         musicData.map((album) => {
           return (
-            <div key={album.id}>
+            <div
+              key={album.id}
+              style={{ margin: "5px", padding: "11px", border: "1px solid" }}
+            >
               <h3>{album.id}</h3>
               <h4>{album.name}</h4>
               <h3>{album.genre}</h3>
