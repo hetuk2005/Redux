@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 
-import { getMusicRecords } from "../Redux/actionTypes";
+import { getMusicRecords } from "../Redux/App/actionTypes";
 
 export const MusicAlbum = () => {
   const dispatch = useDispatch();

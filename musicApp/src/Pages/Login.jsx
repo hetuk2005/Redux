@@ -27,7 +27,14 @@ export const Login = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+          gap: "11px",
+        }}
+      >
         <label>Email</label>
         <input
           type="email"
@@ -38,7 +45,16 @@ export const Login = () => {
         />
       </div>
 
-      <div>
+      <br />
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "left",
+          alignItems: "center",
+          gap: "11px",
+        }}
+      >
         <label>Password</label>
         <input
           type="password"
@@ -48,6 +64,8 @@ export const Login = () => {
           defaultValue={user.password}
         />
       </div>
+
+      <br />
 
       <button type="submit">Submit</button>
     </form>

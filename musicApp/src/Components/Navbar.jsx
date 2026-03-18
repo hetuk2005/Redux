@@ -6,10 +6,11 @@ import { removeToken } from "../Redux/Auth/actionType";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
+
   const nav = [
     { path: "/", element: "music" },
     { path: "/login", element: "login" },
-    { path: "/", element: "editsMusic" },
+    { path: "/edit_music", element: "editsMusic" },
   ];
 
   return (

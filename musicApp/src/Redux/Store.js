@@ -1,7 +1,7 @@
 import { compose, legacy_createStore, applyMiddleware } from "redux";
 import { thunk } from "redux-thunk";
 
-import { reducer as musicReducer } from "./Reducer";
+import { reducer as musicReducer } from "./App/Reducer";
 
 const composeEnhancer =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
