@@ -34,13 +34,22 @@ export const MusicAlbum = () => {
           return (
             <div
               key={album.id}
-              style={{ margin: "5px", padding: "11px", border: "1px solid" }}
+              style={{
+                margin: "5px",
+                padding: "11px",
+                border: "1px solid",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
               <h3>{album.id}</h3>
               <h4>{album.name}</h4>
               <h3>{album.genre}</h3>
               <h4>{album.year}</h4>
               <img src={album.img} alt={album.name} />
+              <br />
               <Link to={`music/${album.id}/edit_music`}>
                 <button>Edit</button>
               </Link>

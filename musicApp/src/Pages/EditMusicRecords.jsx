@@ -1,27 +1,40 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+
+import {updateMusic} from "../Redux/App/actionTypes"
 
 export const EditMusicRecords = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
+  const navigate = useNavigate();
   const musicAlbums = useSelector((store) => store.app.musicRecords);
   const [editMusic, setEditMusic] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const updateData = {
+      id,
+      name:editMusic,
+    }
+
+    dispatch(updateMusic(updateData));
+    navigate("/")
   };
 
   useEffect(() => {
     let findAlbum = musicAlbums.find((album) => album.id === id);
-
-    console.log(findAlbum);
+    
+    // console.log(findAlbum);
 
     if (findAlbum) {
       setEditMusic(findAlbum.name);
     }
   }, [id, musicAlbums]);
+  
   return (
     <form onSubmit={handleSubmit}>
       <label style={{ textAlign: "center" }}>
@@ -44,4 +57,4 @@ export const EditMusicRecords = () => {
       </div>
     </form>
   );
-};
+};;
