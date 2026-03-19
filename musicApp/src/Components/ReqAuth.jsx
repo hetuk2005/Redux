@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
-export const ReqAuth = ({ childern }) => {
+export const ReqAuth = ({ children }) => {
   const { isAuth } = useSelector((store) => store.auth);
-  // console.log("Is Auth: ", isAuth);
+  console.log("Is Auth: ", isAuth);
   const location = useLocation();
 
   if (!isAuth) {
@@ -12,5 +12,5 @@ export const ReqAuth = ({ childern }) => {
     );
   }
 
-  return childern;
+  return children;
 };

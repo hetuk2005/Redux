@@ -6,7 +6,7 @@ import { MusicAlbum } from "../Components/MusicAlbum";
 import { useSelector } from "react-redux";
 
 export const MusicRecord = () => {
-  const isErrorFound = useSelector((store) => store.isError);
+  const isErrorFound = useSelector((store) => store.app.isError);
 
   if (isErrorFound.msg) {
     return (

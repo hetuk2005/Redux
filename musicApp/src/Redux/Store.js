@@ -7,7 +7,7 @@ import {
 import { thunk } from "redux-thunk";
 
 import { reducer as musicReducer } from "./App/Reducer";
-import { reducer as authReducer } from "./Auth/Reducer";
+import { Reducer as authReducer } from "./Auth/Reducer";
 
 const rootTerminal = combineReducers({
   auth: authReducer,
